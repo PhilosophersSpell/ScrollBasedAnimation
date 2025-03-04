@@ -29,7 +29,16 @@ const scene = new THREE.Scene()
  * Objects
  */
 
-const material = new THREE.MeshToonMaterial({ color: parameters.materialColor })
+// Texture
+const textureLoader = new THREE.TextureLoader();
+const gradientTexture = textureLoader.load('textures/gradients/3.jpg');
+gradientTexture.magFilter = THREE.NearestFilter;
+
+// Material
+const material = new THREE.MeshToonMaterial({
+    color: parameters.materialColor,
+    gradientMap: gradientTexture,
+})
 
 const mesh1 = new THREE.Mesh(
     new THREE.TorusGeometry(1, 0.4, 16, 60),
