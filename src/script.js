@@ -40,6 +40,8 @@ const material = new THREE.MeshToonMaterial({
     gradientMap: gradientTexture,
 })
 
+// Meshes
+const objectsDistance = 4;
 const mesh1 = new THREE.Mesh(
     new THREE.TorusGeometry(1, 0.4, 16, 60),
     material
@@ -54,6 +56,10 @@ const mesh3 = new THREE.Mesh(
     new THREE.TorusKnotGeometry(0.8, 0.35, 100, 16),
     material
 )
+
+mesh1.position.y = - objectsDistance * 0;
+mesh2.position.y = - objectsDistance * 1;
+mesh3.position.y = - objectsDistance * 2;
 
 scene.add(mesh1, mesh2, mesh3)
 
